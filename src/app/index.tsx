@@ -1,9 +1,16 @@
+import { trpc } from '../trpc';
 import { Link } from "expo-router";
 import React from "react";
 import { Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
+
 export default function Page() {
+
+  const { data } = trpc.hello.useQuery();
+
+  console.log('data', data);
+
   return (
     <View className="flex flex-1">
       <Header />
